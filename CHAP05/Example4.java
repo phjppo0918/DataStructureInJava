@@ -64,7 +64,7 @@ class Polynomial {
   public int getDegree(){
     return this.degree;
   }
-  public float getConef(int i){
+  public float getCoef(int i){
     return this.coef[i];
   }
 
