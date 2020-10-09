@@ -3,12 +3,15 @@ public class Example1 {
     LinkedList L = new LinkedList();
     System.out.println("(1) 공백 리스트에 노드 3개 삽입하기");
     L.insertLastNode("월");
+    L.insertLastNode("화");
     L.insertLastNode("수");
+    L.insertLastNode("목");
+    L.insertLastNode("토");
     L.insertLastNode("일");
     L.printList();
 
-    System.out.println("(2) \'수\' 노드 뒤에 \'금\' 노드 삽입하기");
-    ListNode pre = L.searchNode("수");
+    System.out.println("(2) \'목\' 노드 뒤에 \'금\' 노드 삽입하기");
+    ListNode pre = L.searchNode("목");
     if(pre == null) {
       System.out.println("검색 실패 >>> 찾는 데이터가 없습니다.");
     }else{
