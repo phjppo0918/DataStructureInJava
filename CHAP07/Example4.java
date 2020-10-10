@@ -1,5 +1,9 @@
+class StackNode {
+  int data;
+  StackNode link;
+}
 class LinkedStack {
-  private Stacknode top;
+  private StackNode top;
 
   public boolean isEmpty(){
     return (top == null);
@@ -28,7 +32,7 @@ class OptExp2{
   private String exp;
 
   public int evalPostfix(String postfix){
-    LinkedStack S = new LinkedStrack();
+    LinkedStack S = new LinkedStack();
     exp = postfix;
     int opr1, opr2, value;
     char testCh;
@@ -62,5 +66,19 @@ class OptExp2{
         }
       }
     }
+
+    return S.pop();
+  }
+}
+
+class Example4 {
+  public static void main(String [] args){
+    OptExp2 opt = new OptExp2();
+    int result;
+    String exp = "35*62/-";
+    System.out.printf("\n후위표기식 : %s", exp);
+    result = opt.evalPostfix(exp);
+    System.out.printf("\n 연산결과 = %d \n", result);
+    
   }
 }
