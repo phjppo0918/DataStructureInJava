@@ -57,7 +57,7 @@ class LinkedStack implements Stack{
 
 }
 class OptExp {
-  private Stirng exp;
+  private String exp;
   private int expSize;
   private char testCh, openPair;
 
@@ -84,9 +84,9 @@ class OptExp {
         }else{
           openPair = S.pop();
           if( 
-              (openpair == '(' && testCh != ')') ||
-              (openpair == '{' && testCh != '}') ||
-              (openpair == '[' && testCh != ']') 
+              (openPair == '(' && testCh != ')') ||
+              (openPair == '{' && testCh != '}') ||
+              (openPair == '[' && testCh != ']') 
             ) {
             return false;
           }else {
@@ -97,7 +97,7 @@ class OptExp {
       }
 
     }
-    if (S.isEmpty) return true;
+    if (S.isEmpty()) return true;
     else return false;
   }
 
@@ -157,8 +157,8 @@ class Example3 {
       System.out.println("괄호 틀림!!!");
     }
 
-    Systme.out.printf("\n후위표기식 : ");
-    perfix = opt.toPostfix(exp);
+    System.out.printf("\n후위표기식 : ");
+    postfix = opt.toPostfix(exp);
     System.out.println(postfix);
   }
 }
