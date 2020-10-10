@@ -65,6 +65,7 @@ class OptExp {
     this.exp = exp;
     LinkedStack S = new LinkedStack();
     expSize = this.exp.length();
+
     for(int i = 0;i<expSize;i++ ){
       testCh = this.exp.charAt(i);
       switch(testCh) {
@@ -77,38 +78,87 @@ class OptExp {
         case ')' :
         case '}' :
         case ']' :
+
         if(S.isEmpty()){
           return false;
         }else{
           openPair = S.pop();
-          if((openpair))
+          if( 
+              (openpair == '(' && testCh != ')') ||
+              (openpair == '{' && testCh != '}') ||
+              (openpair == '[' && testCh != ']') 
+            ) {
+            return false;
+          }else {
+            break;
+          }
         }
       
       }
+
     }
+    if (S.isEmpty) return true;
+    else return false;
+  }
+
+  public char[] toPostfix(String infix) {
+    char testCh;
+    exp = infix;
+    int expSize = 10;
+    int j = 0;
+    char postfix[] = new char[expSize];
+    LinkedStack S = new LinkedStack();
+
+    for(int i=0; i<expSize; i++){
+      testCh = this.exp.charAt(i);
+      switch(testCh){
+        case '0':
+        case '1':
+        case '2':
+        case '3':
+        case '4':
+        case '5':
+        case '6':
+        case '7':
+        case '8':
+        case '9':
+          postfix[j++] = testCh;
+          break;
+
+        case '+':
+        case '-':
+        case '*':
+        case '/':
+          S.push(testCh);
+          break;
+        case ')':
+        postfix[j++] = S.pop();
+        break;
+
+        default :
+      }
+    }
+    postfix[j] = S.pop();
+    return postfix;
   }
 }
 
 
-class Example2 {
+class Example3 {
   public static void main(String [] args){
-    char deletedItem;
-    LinkedStack LS = new LinkedStack();
-
-    LS.push('A');
-    LS.printStack();
-
-    LS.push('B');
-    LS.printStack();
-
-    LS.push('C');
-    LS.printStack();
-
-    deletedItem = LS.pop();
-
-    if(deletedItem != 0){
-      System.out.println("Deleted Item :" + deletedItem);
+    OptExp opt = new OptExp();
+    String exp = "(3*5)-(6/2)";
+    char postfix[];
+    int value;
+    System.out.println(exp);
+    if(opt.testPair(exp)){
+      System.out.println("괄호 맞음!");
+    }else {
+      System.out.println("괄호 틀림!!!");
     }
-    LS.printStack();
+
+    Systme.out.printf("\n후위표기식 : ");
+    perfix = opt.toPostfix(exp);
+    System.out.println(postfix);
   }
 }
