@@ -109,7 +109,7 @@ class OptExp {
     char postfix[] = new char[expSize];
     LinkedStack S = new LinkedStack();
 
-    for(int i=0; i<expSize; i++){
+    for(int i=0; i<=expSize; i++){
       testCh = this.exp.charAt(i);
       switch(testCh){
         case '0':
