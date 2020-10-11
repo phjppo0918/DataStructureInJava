@@ -3,7 +3,7 @@ class QNode{
   QNode link;
 }
 
-class LinkQueue implements Queue{
+class LinkedQueue implements Queue{
   QNode front;
   QNode rear;
 
@@ -32,7 +32,7 @@ class LinkQueue implements Queue{
 
   public char deQueue(){
     if(isEmpty()){
-      System.out.println("Deleting gail! Linked Queue is empty!!");
+      System.out.println("Deleting fail! Linked Queue is empty!!");
       return 0;
     }else{
       char item = front.data;
@@ -42,5 +42,80 @@ class LinkQueue implements Queue{
       }
       return item;
     }
+  }
+
+  public void delete(){
+    if(isEmpty()){
+      System.out.println("Deleting fail! Linked Queue is empty!!");
+    }else{
+      front = front.link;
+      if(front == null){
+        rear = null;
+      }
+    }
+  }
+
+  public char peek(){
+    if(isEmpty()){
+      System.out.println("Peeking fail! Linked Queue is empty!!");
+      return 0;
+    }else{
+      return front.data;
+    }
+  }
+
+  public void printQueue(){
+    if(isEmpty()){
+      System.out.print("Linked Queue is empty!! \n\n");
+    }else{
+      QNode temp = front;
+      System.out.print("Linked Queue >> ");
+      while(temp != null){
+        System.out.print(temp.data+ " ");
+        temp = temp.link;
+      }
+      System.out.println("\n");
+    }
+  }
+
+}
+
+class Example3{
+  public static void main(String [] args){
+    char deletedItem;
+    LinkedQueue LQ = new LinkedQueue();
+
+    LQ.enQueue('A');
+    LQ.printQueue();
+
+    LQ.enQueue('B');
+    LQ.printQueue();
+
+    deletedItem = LQ.deQueue();
+    if(deletedItem != 0){
+      System.out.println("deleted Item : " + deletedItem);
+    }
+    LQ.printQueue();
+
+    LQ.enQueue('C');
+    LQ.printQueue();
+
+    deletedItem = LQ.deQueue();
+    if(deletedItem != 0){
+      System.out.println("deleted Item : " + deletedItem);
+    }
+    LQ.printQueue();
+
+    deletedItem = LQ.deQueue();
+    if(deletedItem != 0){
+      System.out.println("deleted Item : " + deletedItem);
+    }
+    LQ.printQueue();
+
+    deletedItem = LQ.deQueue();
+    if(deletedItem != 0){
+      System.out.println("deleted Item : " + deletedItem);
+    }
+    LQ.printQueue();
   }
 }
