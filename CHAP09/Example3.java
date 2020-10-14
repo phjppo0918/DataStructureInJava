@@ -29,7 +29,7 @@ class Heap{
     child = 2;
 
     while(child <= heapSize) {
-      if((child<heapSize) && (itemHeap[child] < itemHeap[child+1])){
+      if((child < heapSize) && (itemHeap[child] < itemHeap[child+1])){
         child++;
       }
       if(temp >= itemHeap[child]){
@@ -66,7 +66,7 @@ class Example3 {
     h.printHeap();
 
     n = h.getHeapSize();
-    for(int i=1;i<n;i++){
+    for(int i=1;i<=n;i++){
       item = h.deleteHeap();
       System.out.printf("\n deleted Item : [%d]", item);
     }
