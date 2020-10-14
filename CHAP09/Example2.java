@@ -61,6 +61,37 @@ class BinarySearchTree{
 class Example2 {
   public static void main(String [] args){
     BinarySearchTree bsT = new BinarySearchTree();
-    //~~
+    bsT.insertBST('G');
+    bsT.insertBST('I');
+    bsT.insertBST('H');
+    bsT.insertBST('D');
+    bsT.insertBST('B');
+    bsT.insertBST('M');
+    bsT.insertBST('N');
+    bsT.insertBST('A');
+    bsT.insertBST('J');
+    bsT.insertBST('E');
+    bsT.insertBST('Q');
+
+    System.out.print("\nBinary Tree >>>");
+    bsT.printBST();
+
+    System.out.print("IS There \"A\" ? >>>");
+    TreeNode p1 = bsT.searchBST('A');
+    if(p1 != null) {
+      System.out.printf("Searching Success! Searched key : %c \n", p1.data);
+    }else{
+      System.out.printf("Searching fail!! There is no %c \n", p1.data);
+    }
+
+    System.out.printf("IS There \"Z\" ? >>>");
+    TreeNode p2 = bsT.searchBST('Z');
+    if(p2 != null) {
+      System.out.printf("Searching Success! Searched key : %c \n", p2.data);
+    }else{
+      System.out.print("Searching fail!\n");
+    }
+
+
   }
 }
