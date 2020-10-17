@@ -19,7 +19,7 @@ class LinkedStack{
 
   public int pop(){
     if(isEmpty()){
-      System.out.println("Deleting fail! Linked Stack is eMpty!!");
+      System.out.println("Deleting fail! Linked Stack is Empty!!");
       return 0;
     }else{
       int item = top.data;
