@@ -32,7 +32,7 @@ class Sort{
       }
     }
 
-    //(L>R)이 된 경우
+    //(L==R)이 된 경우
     temp = a[pivot];
     a[pivot] = a[R];
     a[R] = temp;
